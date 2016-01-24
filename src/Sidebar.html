@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <style>
+      
+    </style>
+    <script type="text/javascript">
+      function send(){
+        document.getElementById("result").innerHTML="Making Copies...";
+        google.script.run
+        .withSuccessHandler(function(){
+          document.getElementById("result").innerHTML="Done!";
+        })
+        .makeCopies(document.getElementById("fileId").value,document.getElementById("numFiles").value);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container" style="padding:5px">
+    
+      <div class="block">
+        <p class="gray">Enter document Id below of the Google Doc you want to make copies of and number of copies you want to make.</p>
+        <p class="secondary">If no docId specified, the current document will be copied.</p>
+        <p class="secondary">If number of copies not specified, 5 copies will be made.</p>
+      </div>
+      <div class="block">
+        <label for="fileId">Enter Google Document ID here</label>
+        <input id="fileId" type="text"/>
+      </div>
+      <div class="block">
+        <label for="numFiles">Enter number of copies here</label>
+        <input id="numFiles" type="text" />
+      </div>
+      <div class="block">
+        <button type="submit" class="create" onClick="send()">Make Copies</submit>
+      </div>
+      <div id="result" class="block"></div>
+      
+    </div>
+  </body>
+</html>
+
+
